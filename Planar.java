@@ -5,21 +5,14 @@ public class Planar {
   public void verificarPlanaridade(String arg) throws FileNotFoundException {
 
       Grafo grafo = new Grafo(arg);
-      int aresta = 0;
 
-      for (int i = 0; i < grafo.numeroDeArestas; i++) {
+      if (grafo.numeroDeArestas <= ((3 * grafo.numeroDeVertices) - 6)) {
 
-        aresta += 1;
-
-      }
-
-      if (aresta > (3 * grafo.numeroDeVertices)) {
-
-        System.out.println("Não é planar");
+        System.out.println("É planar");
 
       } else {
 
-        System.out.println("É planar");
+        System.out.println("Não é planar");
 
       }
 

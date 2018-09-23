@@ -21,23 +21,41 @@ public class Grafo {
     String[] coluna = linha.split(" ");
     this.numeroDeVertices = coluna.length;
 
+    int matriz[][] = new int[this.numeroDeVertices][this.numeroDeVertices];
+
+    int i = 0;
+    int j = 0;
     scanner = new Scanner(entrada);
     while(scanner.hasNextLine()) {
 
       linha = scanner.nextLine();
       coluna = linha.split(" ");
 
-      for (int j = 0; j < coluna.length; j++) {
+      for (j = 0; j < coluna.length; j++) {
 
-        if(Integer.parseInt(coluna[j]) != 0) {
-
-          this.numeroDeArestas += 1;
-
-        }
+        matriz[i][j] = Integer.parseInt(coluna[j]);
 
       }
 
+      i++;
     }
+
+    for (int x = 0; x < i; x++) {
+      for (int y = 0; y < j; y++) {
+
+        if(matriz[x][y] != 0) {
+          if (matriz[x][y] == matriz[y][x]) {
+            matriz[x][y] = 0;
+            matriz[y][x] = 0;
+            this.numeroDeArestas += 1;
+          }
+        }
+
+      }
+    }
+
+    System.out.println("Numero de Vertices: " + numeroDeVertices);
+    System.out.println("Numero de Arestas : " + numeroDeArestas);
 
   }
 
