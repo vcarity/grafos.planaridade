@@ -1,1 +1,1 @@
-# grafos.planaridade
+# Algoritmo para verificar planaridade de um grafo
